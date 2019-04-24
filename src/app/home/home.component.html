@@ -1,0 +1,18 @@
+<div class="container w-75">
+  <div
+    class="row my-5 align-items-center actor"
+    *ngFor="let actor of actors; let i = index"
+  >
+    <div class="col-4 actorImage">
+      <img src="{{ actor.photo }}" alt="" />
+    </div>
+    <div class="col-8">
+      <h2>
+        <strong>{{ actor.name }}</strong>
+      </h2>
+      <p><strong>Age: </strong>{{ actor.age }}</p>
+      <p><strong>Summary:</strong> <br />{{ actor.description }}</p>
+      <a href="#"><i class="far fa-star"></i></a>
+    </div>
+  </div>
+</div>
