@@ -1,18 +1,48 @@
-<div class="container w-75">
-  <div
-    class="row my-5 align-items-center actor"
-    *ngFor="let actor of actors; let i = index"
-  >
-    <div class="col-4 actorImage">
-      <img src="{{ actor.photo }}" alt="" />
+<!-- <div class="container fixed-bottom">
+  <div class="row"> 
+    <div class="col">
+      <div class="bg-secondary">
+        <h1 class="text-center text-white">
+          <span class="d-block d-sm-none">XS</span>
+          <span class="d-none d-sm-block d-md-none">SM</span>
+          <span class="d-none d-md-block d-lg-none">MD</span>
+          <span class="d-none d-lg-block d-xl-none">LG</span>
+          <span class="d-none d-xl-block">XL</span>
+        </h1>
+      </div>
     </div>
-    <div class="col-8">
-      <h2>
-        <strong>{{ actor.name }}</strong>
-      </h2>
-      <p><strong>Age: </strong>{{ actor.age }}</p>
-      <p><strong>Summary:</strong> <br />{{ actor.description }}</p>
-      <a href="#"><i class="far fa-star"></i></a>
+  </div>
+</div> -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3 my-5">
+      <app-favorite-list></app-favorite-list>
+    </div>
+    <div class="col-9">
+      <div
+        class="row my-5 align-items-lg-center actor"
+        *ngFor="let actor of actors; let i = index"
+      >
+        <div
+          class="col-12 col-md-5 col-xl-3 text-center actorImage ml-md-5 mb-4"
+        >
+          <img src="{{ actor.photo }}" alt="" />
+        </div>
+        <div class="col-12 col-md-5 col-xl-7">
+          <h2>
+            <strong>{{ actor.name }}</strong>
+          </h2>
+          <p><strong>Age: </strong>{{ actor.age }}</p>
+          <p><strong>Summary:</strong> <br />{{ actor.description }}</p>
+          <button
+            class="buttonStar"
+            (click)="ActorsService.toggleFavorite(actor)"
+          >
+            <i class="far fa-star"></i>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
